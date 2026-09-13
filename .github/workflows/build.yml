@@ -26,7 +26,9 @@ jobs:
 
       - name: Build web app
         run: npm run build
-
+      - name: Fix WebView asset paths
+        run: |
+          sed -i 's#src="/assets/#src="./assets/#g; s#href="/assets/#href="./assets/#g' dist/index.html
       - name: Copy web assets into Android shell
         run: |
           rm -rf android/app/src/main/assets/www
