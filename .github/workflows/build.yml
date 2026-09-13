@@ -13,7 +13,7 @@ jobs:
 
       - name: Extract project source
         run: |
-              unzip -q hokm-joker-webviewassetloader-v7-androidx.zip -d /tmp/hokm
+              unzip -q hokm-joker-webviewassetloader-v7-androidx-SALIM.zip -d /tmp/hokm
               cp -R /tmp/hokm/hokm-joker-v5/. .
 
       - name: Setup Node
