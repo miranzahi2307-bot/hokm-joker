@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>حکم جوکر</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Tahoma, sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(160deg, #10152f, #342052, #111827);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }.menu {
+  width: 85%;
+  max-width: 380px;
+  padding: 25px 15px;
+  border: 1px solid #d9ad58;
+  border-radius: 22px;
+  background: #111827cc;
+  box-shadow: 0 0 30px #8b5cf655;
+}
+
+h1 {
+  color: #f4cf78;
+  font-size: 32px;
+}
+
+p {
+  color: #d1d5db;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin: 14px 0;
+  padding: 16px 10px;
+  border: 1px solid #d9ad58;
+  border-radius: 12px;
+  background: #29234b;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+button:active {
+  background: #514078;
+}
+
+.small {
+  font-size: 13px;
+  color: #f4cf78;
+}
+
+  </style>
+</head>
+<body>
+  <main class="menu">
+    <h1>حکم جوکر</h1>
+    <p>آماده‌ای برای یک رقابت هیجان‌انگیز؟</p><button onclick="chooseGame('حکم ۵۴۰')">
+  🂡 حکم ۵۴۰
+  <div class="small">۴ بازیکن</div>
+</button>
+
+<button onclick="chooseGame('جوکر ۵۴۰')">
+  🃏 جوکر ۵۴۰
+  <div class="small">۶ بازیکن</div>
+</button>
+
+<p id="message">یکی از بازی‌ها رو انتخاب کن</p>
+
+  </main>  <script>
+    function chooseGame(name) {
+      document.getElementById("message").textContent =
+        "بازی " + name + " انتخاب شد!";
+    }
+  </script></body>
+</html>
