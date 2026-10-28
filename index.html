@@ -1,81 +1,219 @@
 <!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>حکم جوکر</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Tahoma, sans-serif;
-      color: white;
-      text-align: center;
-      background: linear-gradient(160deg, #10152f, #342052, #111827);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }.menu {
-  width: 85%;
-  max-width: 380px;
-  padding: 25px 15px;
-  border: 1px solid #d9ad58;
-  border-radius: 22px;
-  background: #111827cc;
-  box-shadow: 0 0 30px #8b5cf655;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حکم جوکر</title><style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Tahoma, sans-serif;
+  color: white;
+  background: linear-gradient(145deg, #0b1026, #24183f, #101a35);
+  background-size: 200% 200%;
+  animation: sky 12s ease infinite;
 }
 
-h1 {
-  color: #f4cf78;
-  font-size: 32px;
+@keyframes sky {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-p {
-  color: #d1d5db;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 12px;
+}
+
+.box {
+  border: 1px solid #b99b5d;
+  border-radius: 14px;
+  padding: 12px;
+  background: #151a35dd;
 }
 
 button {
-  display: block;
-  width: 100%;
-  margin: 14px 0;
-  padding: 16px 10px;
-  border: 1px solid #d9ad58;
-  border-radius: 12px;
-  background: #29234b;
+  font-family: inherit;
   color: white;
-  font-size: 17px;
+  background: linear-gradient(135deg, #39305f, #202746);
+  border: 1px solid #c9a75e;
+  border-radius: 12px;
+  padding: 14px 8px;
+  font-size: 15px;
   cursor: pointer;
 }
 
-button:active {
-  background: #514078;
+button:active { transform: scale(.98); }
+
+.coins { color: #ffd778; }
+
+.subscription {
+  display: block;
+  margin-top: 8px;
+  padding: 8px;
+  font-size: 12px;
+  background: #5b3a79;
 }
 
-.small {
+main {
+  max-width: 480px;
+  margin: auto;
+  padding: 12px;
+}
+
+h1 {
+  text-align: center;
+  color: #f4d58b;
+  font-size: 34px;
+  margin: 22px 0 8px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #c8c6dd;
   font-size: 13px;
-  color: #f4cf78;
+  margin-bottom: 26px;
 }
 
-  </style>
-</head>
-<body>
-  <main class="menu">
+.games {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.game {
+  min-height: 130px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.game span {
+  display: block;
+  margin-top: 12px;
+  color: #f4d58b;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.section-title {
+  color: #f4d58b;
+  margin: 24px 0 10px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.menu-grid button { font-size: 14px; }
+
+footer {
+  text-align: center;
+  color: #999bb9;
+  padding: 26px 8px;
+  font-size: 11px;
+}
+
+#screen {
+  display: none;
+  margin-top: 20px;
+}
+
+#screen button {
+  width: 100%;
+  margin: 6px 0;
+}
+
+.back { background: #303047; }
+
+.note {
+  color: #c8c6dd;
+  font-size: 13px;
+  line-height: 1.9;
+}
+</style></head><body><header>
+  <div class="box">
+    👤 بازیکن
+    <div style="color:#f4d58b;margin-top:7px">سطح ۱ · تازه‌وارد</div>
+  </div>  <div>
+    <div class="box coins">🪙 ۱۰۰۰ <button onclick="showPage('shop')" style="padding:4px 9px">+</button></div>
+    <button class="subscription" onclick="showPage('subscription')">👑 اشتراک</button>
+  </div>
+</header><main>
+  <div id="home">
     <h1>حکم جوکر</h1>
-    <p>آماده‌ای برای یک رقابت هیجان‌انگیز؟</p><button onclick="chooseGame('حکم ۵۴۰')">
-  🂡 حکم ۵۴۰
-  <div class="small">۴ بازیکن</div>
-</button>
+    <p class="subtitle">شبِ رقابت شروع شده؛ آماده‌ای؟</p><div class="games">
+  <button class="game" onclick="chooseMode('حکم ۵۴۰')">
+    🂡 حکم ۵۴۰
+    <span>۴ بازیکن</span>
+  </button>
 
-<button onclick="chooseGame('جوکر ۵۴۰')">
-  🃏 جوکر ۵۴۰
-  <div class="small">۶ بازیکن</div>
-</button>
+  <button class="game" onclick="chooseMode('جوکر ۵۴۰')">
+    🃏 جوکر ۵۴۰
+    <span>۶ بازیکن</span>
+  </button>
+</div>
 
-<p id="message">یکی از بازی‌ها رو انتخاب کن</p>
+<h3 class="section-title">منوی بازیکن</h3>
+<div class="menu-grid">
+  <button onclick="showPage('profile')">👤 پروفایل</button>
+  <button onclick="showPage('friends')">👥 دوستان</button>
+  <button onclick="showPage('invite')">✉️ دعوت دوستان</button>
+  <button onclick="showPage('shop')">🛍️ فروشگاه</button>
+  <button onclick="showPage('ranking')">🏆 رتبه‌بندی</button>
+  <button onclick="showPage('honor')">👑 تالار افتخارات</button>
+  <button onclick="showPage('settings')">⚙️ تنظیمات</button>
+</div>
 
-  </main>  <script>
-    function chooseGame(name) {
-      document.getElementById("message").textContent =
-        "بازی " + name + " انتخاب شد!";
-    }
-  </script></body>
+  </div>  <div id="screen" class="box">
+    <h2 id="pageTitle" style="color:#f4d58b"></h2>
+    <div id="pageContent" class="note"></div>
+    <button class="back" onclick="goHome()">⬅️ بازگشت به صفحه اصلی</button>
+  </div>
+</main><footer>حکم جوکر · رقابت دوستانه، هیجان بی‌پایان</footer><script>
+function goHome() {
+  document.getElementById("home").style.display = "block";
+  document.getElementById("screen").style.display = "none";
+}
+
+function showPage(page) {
+  const pages = {
+    profile: ["پروفایل", "نام بازیکن: بازیکن<br>سطح: ۱<br>آمار و سابقهٔ بازی در نسخه‌های بعدی اضافه می‌شود."],
+    friends: ["دوستان", "اینجا می‌توانی دوستانت را پیدا کنی. فهرست آنلاین دوستان بعداً با اتصال به سرور فعال می‌شود."],
+    invite: ["دعوت دوستان", "بعداً امکان دعوت دوستان با لینک یا کد بازی را اضافه می‌کنیم."],
+    shop: ["فروشگاه", "موجودی آزمایشی: ۱۰۰۰ سکه<br>فروشگاه هنوز به پرداخت یا سرور متصل نیست."],
+    ranking: ["رتبه‌بندی", "جدول رتبه‌بندی پس از راه‌اندازی سرور آنلاین فعال می‌شود."],
+    honor: ["تالار افتخارات", "افتخارات و رکوردهای بازیکنان در مراحل بعدی نمایش داده می‌شود."],
+    settings: ["تنظیمات", "تنظیمات صدا و ظاهر را در مرحلهٔ بعد اضافه می‌کنیم."],
+    subscription: ["اشتراک", "اشتراک یک‌ماهه، دوماهه و سه‌ماهه در طرح بازی قرار دارد؛ خرید واقعی هنوز فعال نیست."]
+  };
+
+  document.getElementById("home").style.display = "none";
+  document.getElementById("screen").style.display = "block";
+  document.getElementById("pageTitle").textContent = pages[page][0];
+  document.getElementById("pageContent").innerHTML = pages[page][1];
+}
+
+function chooseMode(game) {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("screen").style.display = "block";
+  document.getElementById("pageTitle").textContent = game;
+  document.getElementById("pageContent").innerHTML =
+    "<p>روش بازی را انتخاب کن:</p>" +
+    "<button onclick=\"showTiers('" + game + "')\">🎮 بازی آنلاین</button>" +
+    "<button onclick=\"showPage('friends')\">👥 بازی با دوستان</button>";
+}
+
+function showTiers(game) {
+  document.getElementById("pageTitle").textContent = game + " · انتخاب سطح";
+  document.getElementById("pageContent").innerHTML =
+    "<p>سطح ۱ · ورود: ۱۰۰ سکه</p>" +
+    "<button onclick=\"alert('اتصال به سرور هنوز آماده نیست')\">🌙 سطح ۱</button>" +
+    "<p>سطح‌های بعدی با پیشرفت بازیکن باز می‌شوند.</p>";
+}
+</script></body>
 </html>
